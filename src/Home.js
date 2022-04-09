@@ -31,8 +31,13 @@ const Home = () => {
            <Product 
               id='3441525'
               title="Echo Dot (3rd Gen, 2018 release) - Smart speaker with Alexa - Charcoal" price={64.26} rating={4} image='https://m.media-amazon.com/images/I/6182S7MYC2L._AC_SX569_.jpg'/>
-           <Product title="2021 Apple 12.9-inch iPad Pro (Wi‑Fi, 256GB) - Silver
-           " price={1136.99} rating={4} image='https://m.media-amazon.com/images/I/815KnP2wjDS._AC_SX466_.jpg'/>
+           <Product 
+              id='7357382'
+              title="2021 Apple 12.9-inch iPad Pro (Wi‑Fi, 256GB) - Silver
+              " 
+              price={1136.99} 
+              rating={4} 
+              image='https://m.media-amazon.com/images/I/815KnP2wjDS._AC_SX466_.jpg'/>
         </div>
         <div className='home__row'>
         <Product 
