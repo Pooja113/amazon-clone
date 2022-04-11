@@ -7,6 +7,7 @@ import { useStateValue } from './StateProvider'
 import CurrencyFormat from 'react-currency-format'
 import { getBasketTotal } from './reducer';
 import axios from "./axios";
+import { db } from './firebase';
 //import { instance } from './axios';
 
 const Payment = () => {
@@ -28,7 +29,7 @@ const Payment = () => {
     const getClientSecret = async () =>{
       const response = await axios({
         method:'post',
-        url:`/payment/create?total=${getBasketTotal(basket) * 100}` //dollars 
+        url:`/payments/create?total=${getBasketTotal(basket) * 100}` //dollars 
       });
       setClientSecret(response.data.clientSecret)
     }
@@ -46,10 +47,23 @@ const Payment = () => {
           card: elements.getElement(CardElement)
         }
       }).then(({paymentIntent})=>{
+        db
+          .collection('users')
+          .doc(user?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created
+          })
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
-        
+        dispatch({
+          type: 'EMPTY_BASKET'
+        })
         history.replace('/orders')
       })
   }
