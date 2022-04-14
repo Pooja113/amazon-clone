@@ -33,18 +33,32 @@ function App() {
   return (
     //BEM
     <Router>
+      <div className="app">
         <Switch>
-         
+          <Route path='/login'>
+              <Login />
+          </Route>
+          <Route path='/orders'>
+              <Header/>
+              <Orders />
+          </Route>
           <Route path='/checkout'>
               <Header/>
               <Checkout/>
           </Route>
-       
+          <Route path='/payment'>
+              <Header/>
+              <Elements stripe={promise} >
+                  <Payment />
+              </Elements>
+          </Route>
           <Route path='/'>
             <Header/>
             <Home />
           </Route>
+          
         </Switch>
+      </div>
     </Router>
   );
 }
