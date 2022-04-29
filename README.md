@@ -11,3 +11,8 @@ This project is the amazon clone and have following features <br><br>
   - Back-end in functions folder
  
  
+## FEW IMPORTANT THINGS TO REMEMBER
+
+ Stripe details have been removed
+ Database configuration has been removed
+ 
