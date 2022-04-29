@@ -12,7 +12,7 @@ import Orders from './Orders';
 import Payment from './Payment';
 import { useStateValue } from './StateProvider';
 
-const promise = loadStripe('pk_test_51Kn06pSDdSresvtN18S9fd19AG4DYcCzcaoMDdC2Nzmx82Bvwt5z9b1piz653xc84X8xAyAphlm3TLjk4PVV6ypo0088qGa43l')
+const promise = loadStripe()
 function App() {
   const [{},dispatch] = useStateValue();
   useEffect(()=>{
